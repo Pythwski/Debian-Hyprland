@@ -42,7 +42,7 @@ done
 # Installation of additional sddm stuff
 printf "\n%s - Installing sddm additional stuff.... \n" "${NOTE}"
 for PKG2 in "${sddm2[@]}"; do
-  install_package "$PKG2" 2>&1 | tee -a "$LOG"
+  sudo apt-get install "$PKG2" 2>&1 | tee -a "$LOG"
   if [ $? -ne 0 ]; then
     echo -e "\e[1A\e[K${ERROR} - $PKG2 install had failed, please check the install.log"
     exit 1
